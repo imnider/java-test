@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="75572cff-dca2-4898-9645-6b31b20b78e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/AlquilerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/AlquilerDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/DetalleAlquiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DetalleAlquiler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
