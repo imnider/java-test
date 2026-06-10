@@ -7,13 +7,21 @@ import java.util.List;
 
 public class ClienteService {
 
-    private ClienteDAO dao = new ClienteDAO();
+    private final ClienteDAO dao;
+
+    public ClienteService(ClienteDAO dao) {
+        this.dao = dao;
+    }
 
     public boolean registrarCliente(Cliente c) {
 
-        // VALIDACIONES
         if (c.getCedula() == null || c.getCedula().trim().isEmpty()) {
             System.out.println("La cédula es obligatoria.");
+            return false;
+        }
+
+        if (c.getCedula().length() < 10) {
+            System.out.println("Cédula inválida.");
             return false;
         }
 
@@ -27,8 +35,8 @@ public class ClienteService {
             return false;
         }
 
-        if (c.getCedula().length() < 10) {
-            System.out.println("Cédula inválida.");
+        if (dao.buscarPorCedula(c.getCedula()) != null) {
+            System.out.println("Ya existe un cliente con esa cédula.");
             return false;
         }
 

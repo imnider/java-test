@@ -61,19 +61,24 @@ public class Pelicula extends Producto {
 
     @Override
     public void mostrarDetalle() {
-        System.out.println(this);
+        System.out.println("=== PELÍCULA ===");
+        super.mostrarDetalle();
+        System.out.println("Director: " + director);
+        System.out.println("Año Estreno: " + anioEstreno);
+        System.out.println("Categoría ID: " + idCategoria);
     }
 
-    // toString
     @Override
     public String toString() {
-        return "=== PELÍCULA ===" +
-                "\nID Película: " + idPelicula +
-                "\nCategoría: " + idCategoria +
-                "\nTitulo: " + getNombre() +
-                "\nDirector: " + director +
-                "\nAño Estreno: " + anioEstreno +
-                "\nPrecio: " + getPrecio() +
-                "\nStock: " + getStock();
+        StringBuilder sb = new StringBuilder();
+        sb.append("=== PELÍCULA ===\n");
+        sb.append("ID: ").append(idPelicula).append("\n");
+        sb.append("Categoría: ").append(idCategoria).append("\n");
+        sb.append("Título: ").append(getNombre()).append("\n");
+        sb.append("Director: ").append(director).append("\n");
+        sb.append("Año Estreno: ").append(anioEstreno).append("\n");
+        sb.append("Precio: $").append(String.format("%.2f", getPrecio())).append("\n");
+        sb.append("Stock: ").append(getStock());
+        return sb.toString();
     }
 }

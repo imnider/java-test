@@ -49,7 +49,11 @@ public abstract class Persona {
         this.email = email;
     }
 
-    public abstract void mostrarInfo();
+    public void mostrarInfo() {
+        System.out.println("Nombres: " + getNombres() + " " + getApellidos());
+        System.out.println("Teléfono: " + getTelefono());
+        System.out.println("Email: " + getEmail());
+    }
 
     @Override
     public String toString() {

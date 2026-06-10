@@ -19,12 +19,10 @@ public class DetalleAlquiler {
         this.subtotal = calcularSubtotal();
     }
 
-    // Método calcular subtotal
     public double calcularSubtotal() {
         return precioUnitario * cantidad;
     }
 
-    // Getters y Setters
     public int getIdDetalle() {
         return idDetalle;
     }
@@ -63,15 +61,13 @@ public class DetalleAlquiler {
         return subtotal;
     }
 
-    // toString
     @Override
     public String toString() {
-        return "DetalleAlquiler{" +
-                "idDetalle=" + idDetalle +
-                ", pelicula=" + pelicula.getNombre() +
-                ", cantidad=" + cantidad +
-                ", precioUnitario=" + precioUnitario +
-                ", subtotal=" + subtotal +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("  - ").append(pelicula.getNombre()).append("\n");
+        sb.append("    Cantidad: ").append(cantidad).append("\n");
+        sb.append("    Precio unitario: $").append(String.format("%.2f", precioUnitario)).append("\n");
+        sb.append("    Subtotal: $").append(String.format("%.2f", subtotal));
+        return sb.toString();
     }
 }

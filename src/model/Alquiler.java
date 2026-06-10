@@ -89,6 +89,7 @@ public class Alquiler {
     public double getTotal() {
         return total;
     }
+    public void setTotal(double total) {this.total = total;}
 
     public String getEstado() {
         return estado;
@@ -105,20 +106,17 @@ public class Alquiler {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-
         sb.append("=== ALQUILER ===\n");
         sb.append("ID: ").append(idAlquiler).append("\n");
         sb.append("Cliente: ").append(cliente.getNombres()).append(" ").append(cliente.getApellidos()).append("\n");
         sb.append("Fecha Alquiler: ").append(fechaAlquiler).append("\n");
+        sb.append("Fecha Devolución: ").append(fechaDevolucion).append("\n");
         sb.append("Estado: ").append(estado).append("\n");
         sb.append("Detalles:\n");
-
         for (DetalleAlquiler d : detalles) {
             sb.append(d.toString()).append("\n");
         }
-
-        sb.append("TOTAL: ").append(total);
-
+        sb.append("TOTAL: $").append(String.format("%.2f", calcularTotal()));
         return sb.toString();
     }
 }

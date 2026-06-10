@@ -7,22 +7,31 @@ import java.util.List;
 
 public class PeliculaService {
 
-    private PeliculaDAO dao = new PeliculaDAO();
+    private final PeliculaDAO dao;
+
+    public PeliculaService(PeliculaDAO dao) {
+        this.dao = dao;
+    }
 
     public boolean registrarPelicula(Pelicula p) {
 
-        if (p.getNombre() == null || p.getNombre().isEmpty()) {
-            System.out.println("El nombre no puede estar vacío.");
+        if (p.getNombre() == null || p.getNombre().trim().isEmpty()) {
+            System.out.println("El título no puede estar vacío.");
             return false;
         }
 
-        if (p.getStock() < 0) {
-            System.out.println("El stock no puede ser negativo.");
+        if (p.getIdCategoria() <= 0) {
+            System.out.println("Debe seleccionar una categoría válida.");
             return false;
         }
 
         if (p.getPrecio() <= 0) {
             System.out.println("El precio debe ser mayor a 0.");
+            return false;
+        }
+
+        if (p.getStock() < 0) {
+            System.out.println("El stock no puede ser negativo.");
             return false;
         }
 

@@ -15,7 +15,11 @@ public abstract class Producto {
         this.stock = stock;
     }
 
-    public abstract void mostrarDetalle();
+    public void mostrarDetalle() {
+        System.out.println("Nombre: " + getNombre());
+        System.out.println("Precio: $" + String.format("%.2f", getPrecio()));
+        System.out.println("Stock: " + getStock());
+    }
 
     public boolean validarStock(int cantidad) {
         return cantidad > 0 && cantidad <= stock;

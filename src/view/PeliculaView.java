@@ -1,14 +1,24 @@
 package view;
 
+import model.Categoria;
 import model.Pelicula;
+import service.CategoriaService;
 import service.PeliculaService;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class PeliculaView {
 
-    private final Scanner sc = new Scanner(System.in);
-    private PeliculaService service = new PeliculaService();
+    private final Scanner sc;
+    private final PeliculaService service;
+    private final CategoriaService categoriaService;
+
+    public PeliculaView(Scanner sc, PeliculaService service, CategoriaService categoriaService) {
+        this.sc = sc;
+        this.service = service;
+        this.categoriaService = categoriaService;
+    }
 
     public void mostrarMenu() {
 
@@ -26,79 +36,126 @@ public class PeliculaView {
             System.out.println("╚══════════════════════════════════════╝");
             System.out.print("Seleccione una opción: ");
 
-            opcion = sc.nextInt();
+            try {
+                opcion = Integer.parseInt(sc.nextLine().trim());
+            } catch (NumberFormatException e) {
+                System.out.println("Opción inválida.");
+                opcion = 0;
+                continue;
+            }
 
             switch (opcion) {
-                case 1:
-
-                    System.out.print("Categoría: ");
-                    int cat = sc.nextInt();
-                    sc.nextLine();
-
-                    System.out.print("Nombre: ");
-                    String nombre = sc.nextLine();
-
-                    System.out.print("Director: ");
-                    String director = sc.nextLine();
-
-                    System.out.print("Año: ");
-                    int anio = sc.nextInt();
-
-                    System.out.print("Precio: ");
-                    double precio = sc.nextDouble();
-
-                    System.out.print("Stock: ");
-                    int stock = sc.nextInt();
-
-                    Pelicula p = new Pelicula(cat, director, anio, nombre, precio, stock);
-
-                    if (service.registrarPelicula(p)) {
-                        System.out.println("Película registrada correctamente.");
-                    }
-
-                    break;
-
-                case 2:
-
-                    sc.nextLine();
-                    System.out.print("Título: ");
-                    String titulo = sc.nextLine();
-
-                    Pelicula encontrada = service.buscarPorTitulo(titulo);
-
-                    if (encontrada != null) {
-                        System.out.println(encontrada);
-                    } else {
-                        System.out.println("No encontrada.");
-                    }
-
-                    break;
-
-                case 3:
-
-                    for (Pelicula p1 : service.listarTodas()) {
-                        System.out.println(p1);
-                        System.out.println("--------------------");
-                    }
-
-                    break;
-
-                case 4:
-
-                    for (Pelicula p2 : service.listarConStock()) {
-                        System.out.println(p2.getNombre() + " | Stock: " + p2.getStock());
-                    }
-
-                    break;
-
-                case 5:
-                    System.out.println("Regresando al menú principal...");
-                    break;
-
-                default:
-                    System.out.println("Opción inválida.");
+                case 1 -> registrarPelicula();
+                case 2 -> buscarPorTitulo();
+                case 3 -> listarTodas();
+                case 4 -> listarConStock();
+                case 5 -> System.out.println("Regresando al menú principal...");
+                default -> System.out.println("Opción inválida.");
             }
 
         } while (opcion != 5);
+    }
+
+    private void registrarPelicula() {
+
+        System.out.println("\n-- Categorías disponibles --");
+        for (Categoria cat : categoriaService.listarTodas()) {
+            System.out.println(cat);
+        }
+
+        Categoria categoriaSeleccionada = null;
+        while (categoriaSeleccionada == null) {
+            System.out.print("Seleccione ID de categoría: ");
+            try {
+                int idCat = Integer.parseInt(sc.nextLine().trim());
+                categoriaSeleccionada = categoriaService.buscarPorId(idCat);
+                if (categoriaSeleccionada == null) {
+                    System.out.println("Categoría no encontrada. Intente de nuevo.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("ID inválido.");
+            }
+        }
+
+        System.out.print("Título: ");
+        String titulo = sc.nextLine().trim();
+
+        System.out.print("Director: ");
+        String director = sc.nextLine().trim();
+
+        System.out.print("Año: ");
+        int anio;
+        try {
+            anio = Integer.parseInt(sc.nextLine().trim());
+        } catch (NumberFormatException e) {
+            System.out.println("Año inválido.");
+            return;
+        }
+
+        System.out.print("Precio: ");
+        double precio;
+        try {
+            precio = Double.parseDouble(sc.nextLine().trim());
+        } catch (NumberFormatException e) {
+            System.out.println("Precio inválido.");
+            return;
+        }
+
+        System.out.print("Stock: ");
+        int stock;
+        try {
+            stock = Integer.parseInt(sc.nextLine().trim());
+        } catch (NumberFormatException e) {
+            System.out.println("Stock inválido.");
+            return;
+        }
+
+        Pelicula p = new Pelicula(categoriaSeleccionada.getIdCategoria(), director, anio, titulo, precio, stock);
+        if (service.registrarPelicula(p)) {
+            System.out.println("Película registrada correctamente.");
+        }
+    }
+
+    private void buscarPorTitulo() {
+
+        System.out.print("Título: ");
+        String titulo = sc.nextLine().trim();
+
+        Pelicula encontrada = service.buscarPorTitulo(titulo);
+
+        if (encontrada != null) {
+            System.out.println(encontrada);
+        } else {
+            System.out.println("Película no encontrada.");
+        }
+    }
+
+    private void listarTodas() {
+
+        List<Pelicula> lista = service.listarTodas();
+
+        if (lista.isEmpty()) {
+            System.out.println("No hay películas registradas.");
+            return;
+        }
+
+        for (Pelicula p : lista) {
+            System.out.println(p);
+            System.out.println("--------------------");
+        }
+    }
+
+    private void listarConStock() {
+
+        List<Pelicula> lista = service.listarConStock();
+
+        if (lista.isEmpty()) {
+            System.out.println("No hay películas con stock disponible.");
+            return;
+        }
+
+        for (Pelicula p : lista) {
+            System.out.println(p.getNombre() + " | Stock: " + p.getStock());
+        }
     }
 }

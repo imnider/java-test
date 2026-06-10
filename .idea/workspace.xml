@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="75572cff-dca2-4898-9645-6b31b20b78e5" name="Changes" comment="" />
+    <list default="true" id="75572cff-dca2-4898-9645-6b31b20b78e5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/AlquilerDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/CategoriaDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Categoria.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/AlquilerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/CategoriaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/ConexionBD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/ConexionBD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/ClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/ClienteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/PeliculaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PeliculaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Alquiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Alquiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/DetalleAlquiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DetalleAlquiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Pelicula.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Pelicula.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Persona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/ClienteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/ClienteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/PeliculaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/PeliculaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AlquilerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AlquilerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ClienteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ClienteView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/PeliculaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PeliculaView.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +36,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4,
@@ -28,9 +54,14 @@
     "Application.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Documents/workspace/java-test",
     "onboarding.tips.debug.path": "C:/Users/viamatica/IdeaProjects/AlquilerPeliculas/src/Main.java",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",

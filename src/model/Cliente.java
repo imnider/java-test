@@ -54,19 +54,24 @@ public class Cliente extends Persona {
 
     @Override
     public void mostrarInfo() {
-        System.out.println("=== INFORMACIÓN DEL CLIENTE ===");
-        System.out.println(this);
+        System.out.println("=== CLIENTE ===");
+        super.mostrarInfo();
+        System.out.println("Cédula: " + cedula);
+        System.out.println("Dirección: " + direccion);
     }
 
     @Override
     public String toString() {
-        return "ID Cliente: " + idCliente +
-                "\nCédula: " + cedula +
-                "\nNombres: " + getNombres() +
-                "\nApellidos: " + getApellidos() +
-                "\nTeléfono: " + getTelefono() +
-                "\nEmail: " + getEmail() +
-                "\nDirección: " + direccion +
-                "\nFecha de Registro: " + fechaReg;
+        StringBuilder sb = new StringBuilder();
+        sb.append("=== CLIENTE ===\n");
+        sb.append("ID: ").append(idCliente).append("\n");
+        sb.append("Cédula: ").append(cedula).append("\n");
+        sb.append("Nombres: ").append(getNombres()).append("\n");
+        sb.append("Apellidos: ").append(getApellidos()).append("\n");
+        sb.append("Teléfono: ").append(getTelefono()).append("\n");
+        sb.append("Email: ").append(getEmail()).append("\n");
+        sb.append("Dirección: ").append(direccion).append("\n");
+        sb.append("Fecha de Registro: ").append(fechaReg);
+        return sb.toString();
     }
 }
