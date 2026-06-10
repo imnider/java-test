@@ -13,6 +13,14 @@ Aplicación de consola desarrollada en Java con conexión a SQL Server, aplicand
 
 ---
 
+## Dependencias
+
+El driver JDBC de SQL Server se incluye manualmente en `lib/`.
+Debe agregarse al classpath del proyecto en IntelliJ desde:
+File > Project Structure > Modules > Dependencies > Add JAR
+
+---
+
 ## Estructura del proyecto
 
 ```
