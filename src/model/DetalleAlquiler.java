@@ -61,6 +61,10 @@ public class DetalleAlquiler {
         return subtotal;
     }
 
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
